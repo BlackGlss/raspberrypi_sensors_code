@@ -7,7 +7,8 @@ import math
 #bus = smbus.SMBus(1)
 #time.sleep(1)
 
-bmp = BMP280(port=1, mode=BMP280.FORCED_MODE, oversampling_p=BMP280.OVERSAMPLING_P_x16, oversampling_t=BMP280.OVERSAMPL>            filter=BMP280.IIR_FILTER_OFF, standby=BMP280.T_STANDBY_1000)
+bmp = BMP280(port=1, mode=BMP280.FORCED_MODE, oversampling_p=BMP280.OVERSAMPLING_P_x16,
+oversampling_t=BMP280.OVERSAMPLING_T_x1, filter=BMP280.IIR_FILTER_OFF, standby=BMP280.T_STANDBY_1000)
 
 pressure = bmp.read_pressure()
 temp = bmp.read_temperature()

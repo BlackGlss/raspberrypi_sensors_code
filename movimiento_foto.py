@@ -47,7 +47,7 @@ while True:
       base64_image = base64.b64encode(image_bytes).decode('utf-8')
       
       # Imprimir el resultado
-      with open('/home/pi/sensores/movimiento/foto_base64.txt', 'a') as f:
+      with open('/home/pi/sensores/movimiento/foto_base64.txt', 'w') as f:
           f.write(base64_image)
 
       # Borrar la foto

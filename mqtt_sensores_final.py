@@ -3,7 +3,7 @@ import json
 from datetime import datetime
 
 # Definir variables
-MQTT_HOST = "192.168.80.249"
+MQTT_HOST = "127.0.0.1"
 MQTT_PORT = 1883
 MQTT_KEEPALIVE_INTERVAL = 60
 # pandorafms/raspberry/*sensor*
@@ -15,7 +15,7 @@ timestamp = datetime.now()
 nombres = ['BMP280', 'CCS811', 'DHT-22', 'BMP280', 'DHT-22', 'CCS811']
 # Nombre del .txt donde se guarda el dato
 sensores = ['altitud', 'eco2', 'humedad', 'presion', 'temperatura', 'tvoc']
-descripciones = ['Relative altitude in metres', 'CO2 Equivalent in Parts Per Million', 'Rel>
+descripciones = ['Relative altitude in metres', 'CO2 Equivalent in Parts Per Million', 'Relative humidity in the environment', 'Atmospheric pressure in Hectopascals', 'Temperature in degrees Celsius', 'Total Volatile Organic Compounds in Parts Per Billon']
 
 for nombre, sensor, descripcion in zip(nombres, sensores, descripciones):
 

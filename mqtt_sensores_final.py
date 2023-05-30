@@ -6,7 +6,7 @@ from datetime import datetime
 MQTT_HOST = "127.0.0.1"
 MQTT_PORT = 1883
 MQTT_KEEPALIVE_INTERVAL = 60
-# pandorafms/raspberry/*sensor*
+# raspberry/*sensor*
 
 
 # Extraemos la hora actual
@@ -26,7 +26,7 @@ for nombre, sensor, descripcion in zip(nombres, sensores, descripciones):
 
     MQTT_MSG = {"timestamp": str(timestamp), "data": dato, "description": descripcion}
     MQTT_MSG_JSON = json.dumps (MQTT_MSG)
-    MQTT_TOPIC = "pandorafms/raspberry/{}/{}".format(nombre,sensor)
+    MQTT_TOPIC = "raspberry/{}/{}".format(nombre,sensor)
 
     # Definir la función de evento on_publish
     def on_publish(client, userdata, mid):

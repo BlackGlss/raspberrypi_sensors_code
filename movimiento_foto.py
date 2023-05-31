@@ -36,15 +36,15 @@ while True:
       command = "fswebcam -q -r 1280x720 /home/pi/sensores/movimiento/movimiento.jpg"
       subprocess.run(command, shell=True)
 
-      # Cargar la imagen en formato JPG
-      image_path = "/home/pi/sensores/movimiento/movimiento.jpg"
-      image = Image.open(image_path)
-
-      # Convertir la imagen a bytes
-      image_bytes = image.tobytes()
-
-      # Codificar los bytes en Base64
-      base64_image = base64.b64encode(image_bytes).decode('utf-8')
+      # Se abre la imagen y se codifica en base64
+      with open("/home/pi/sensores/movimiento/movimiento.jpg", "rb") as img_file:
+        b64_string = base64.b64encode(img_file.read())
+      
+      # Eliminamos el caracter "b" extra
+      base64_image = b64_string.decode('utf-8')
+      
+      # Concatenamos la cabecera de imagen jpg para base64
+      imagen_final = "data:image/jpg;base64, " + base64_image
       
       # Imprimir el resultado
       with open('/home/pi/sensores/movimiento/foto_base64.txt', 'w') as f:
